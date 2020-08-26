@@ -36,3 +36,10 @@ include/generated/compile.h: FORCE
 	@$($(quiet)chk_compile.h)
 	$(Q)$(CONFIG_SHELL) $(srctree)/scripts/mkcompile_h $@ \
 	"$(UTS_MACHINE)" "$(CONFIG_SMP)" "$(CONFIG_PREEMPT)" "$(CC) $(KBUILD_CFLAGS)"
+
+
+# Check if it is an AOSP environment or if it is a
+# standalone kernel build.
+ifeq ($(IS_KERNEL_STANDALONE),y)
+CFLAGS_initramfs.o += -DPATCH_SKIP_INITRAMFS
+endif
