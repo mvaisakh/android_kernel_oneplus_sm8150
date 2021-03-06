@@ -22,7 +22,7 @@ jobs:
     - name: make
       run: make O=out ARCH=arm64 CROSS_COMPILE=~/tc/gcc64/bin/aarch64-elf- CROSS_COMPILE_ARM32=~/tc/gcc32/bin/arm-eabi- -j$(nproc --all)
     - name: Kernel Image
-      run: cp out/arch/arm64/boot/Image.gz-dtb kernel-${{ steps.get-date.outputs.date }}.gz
+      run: cp out/arch/arm64/boot/Image-dtb kernel-${{ steps.get-date.outputs.date }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -40,6 +40,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./kernel-${{ steps.get-date.outputs.date }}.gz
-        asset_name: kernel-${{ steps.get-date.outputs.date }}.gz
-        asset_content_type: application/gz
+        asset_path: ./kernel-${{ steps.get-date.outputs.date }}
+        asset_name: kernel-${{ steps.get-date.outputs.date }}
+        asset_content_type: application/bin
