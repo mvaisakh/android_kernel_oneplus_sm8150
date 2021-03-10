@@ -1458,6 +1458,11 @@ source "drivers/cpufreq/Kconfig"
 
 endmenu
 
+config ONEPLUS
+	bool "OnePlus Devices build support"
+	help
+	  Oneplus Devices build support
+
 source "net/Kconfig"
 
 source "drivers/Kconfig"
