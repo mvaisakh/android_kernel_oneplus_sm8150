@@ -1434,6 +1434,10 @@ config SYSVIPC_COMPAT
 
 endmenu
 
+config ONEPLUS
+	bool "OnePlus Build Support"
+	depends on ARM64
+
 menu "Power management options"
 
 source "kernel/power/Kconfig"
