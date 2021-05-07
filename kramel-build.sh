@@ -186,7 +186,8 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%s")
 	msg "|| Cloning Anykernel ||"
 	git clone --depth 1 --no-single-branch https://github.com/"$AUTHOR"/AnyKernel3.git -b op7
 	msg "|| Cloning libufdt ||"
-	git clone https://android.googlesource.com/platform/system/libufdt "$KERNEL_DIR"/scripts/ufdt/libufdt
+	git submodule init
+	git submodule update
 }
 
 ##------------------------------------------------------##
