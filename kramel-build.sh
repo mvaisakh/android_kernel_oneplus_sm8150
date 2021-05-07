@@ -89,7 +89,7 @@ FILES=Image.gz-dtb
 
 # Ship dtbo.img (select this only if your source has support to building dtbo.img)
 # 1 is YES | 0 is NO(default)
-SHIP_DTBO=1
+SHIP_DTBO=0
 
 # Sign the zipfile
 # 1 is YES | 0 is NO
