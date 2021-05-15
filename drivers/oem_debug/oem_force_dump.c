@@ -160,7 +160,9 @@ static void send_msg_worker(struct work_struct *work)
 		send_msg("Enable DEBUG!");
 	else if (message_state == 2) {
 		pr_info("force oem serial\n");
+#ifdef CONFIG_SERIAL_MSM_GENI_CONSOLE
 		msm_serial_oem_init();
+#endif
 		send_msg("ENABLE_OEM_FORCE_SERIAL");
 	}
 	message_state = 0;
