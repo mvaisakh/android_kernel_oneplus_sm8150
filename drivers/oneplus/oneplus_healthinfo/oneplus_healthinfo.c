@@ -1210,8 +1210,10 @@ static ssize_t irq_latency_read(struct file *filp, char __user *buff, size_t cou
     int len = 0,i;
 	struct irq_latency_para *sched_stat;
 	char *page = kzalloc(2048,GFP_KERNEL);
-    if (!page)
+
+    if (!page) {
         return -ENOMEM;
+	}
 
 	for ( i = 0; i < NR_CPUS; i++) {
 		len += sprintf(page + len, "cpu%d:\n", i);
